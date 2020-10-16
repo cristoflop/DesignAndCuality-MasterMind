@@ -4,10 +4,12 @@ public class Result {
 
     private int blacks;
     private int whites;
+    private Combination combination;
 
-    public Result(int blacks, int whites) {
+    public Result(int blacks, int whites, Combination c) {
         this.blacks = blacks;
         this.whites = whites;
+        this.combination = c;
     }
 
     public int getBlacks() {

@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import kotlin.Metadata;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
 public final class Combination {
 
     private final static int MAX_COLORS = 4;
@@ -19,7 +13,7 @@ public final class Combination {
         int blacks = 0;
         int whites = 0;
 
-        return new Result(blacks, whites);
+        return new Result(blacks, whites, this);
     }
 
     public static Combination random() {
@@ -32,23 +26,6 @@ public final class Combination {
             colors.add(Color.values()[pos]);
         }
         return new Combination(colors);
-    }
-
-    @Override
-    public String toString() {
-        String combination = "";
-        for (Color c : this.colors) {
-            combination += c.getColor();
-        }
-        return combination;
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (!(other instanceof Combination)) {
-            return false;
-        }
-        return this.toString().equals(other.toString());
     }
 
     public Combination(String input) {

@@ -5,13 +5,12 @@ import java.util.Scanner;
 public final class Game {
 
     private int attempts;
-    private final int MAX_ATTEMPTS = 2;
+    private final int MAX_ATTEMPTS = 10;
     private Board board;
 
     private Scanner scanner;
 
     public final void play() {
-        String endGameMsg;
         do {
 
             this.showTitle();
@@ -37,16 +36,22 @@ public final class Game {
     public void proposeCombination() {
         System.out.print("Propose a combination: ");
         String input = scanner.nextLine();
+
+
+
     }
 
-    private final void showTitle() {
+    private void showTitle() {
         System.out.println("----- MASTERMIND -----");
     }
 
-    private final void showAttempts() {
+    private void showAttempts() {
         System.out.println(this.attempts + " attempt(s):");
         System.out.println("xxxx");
         // pintar los resultados actuales
+        for(Combination c : this.board.getCombinationsDone()){
+            // mostrar combinaciones hechas
+        }
     }
 
     private void endGame() {
