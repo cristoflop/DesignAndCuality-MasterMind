@@ -6,18 +6,22 @@ public final class Game {
 
     private int attempts;
     private final int MAX_ATTEMPTS = 10;
+    private final int LENGTH = 4;
     private Board board;
 
     private Scanner scanner;
 
     public final void play() {
         do {
-
+            this.board = new Board();
+            this.attempts = 0;
             this.showTitle();
 
             while (!this.board.isFinished() && attempts < this.MAX_ATTEMPTS) {
                 this.showAttempts();
-                this.proposeCombination();
+
+                String proposal = this.proposeCombination();
+                this.board.playRound(new Combination(proposal));
 
                 this.attempts++;
             }
@@ -33,12 +37,43 @@ public final class Game {
         this.endGame();
     }
 
-    public void proposeCombination() {
-        System.out.print("Propose a combination: ");
-        String input = scanner.nextLine();
+    public String proposeCombination() {
+        boolean validProposal = false;
+        String input = "";
+        while (!validProposal) {
+            System.out.print("Propose combination: ");
+            input = scanner.nextLine();
+            validProposal = this.validateCombination(input);
+        }
 
+        return input;
+    }
 
+    private boolean validateCombination(String input) {
+        boolean ok = true;
+        if (input.length() != this.LENGTH) {
+            System.out.println("Wrong proposed combination length");
+            ok = false;
+        } else {
+            if (!validateCharacters(input)) {
+                ok = false;
+            }
+        }
+        return ok;
+    }
 
+    private boolean validateCharacters(String input) {
+        boolean ok = true;
+        char[] chars = input.toCharArray();
+        int i = 0;
+        while (i < chars.length && ok) {
+            if (Color.parse(chars[i]) == Color.Unknown) {
+                ok = false;
+                System.out.println("Wrong colors, they must be: rbygop");
+            }
+            i++;
+        }
+        return ok;
     }
 
     private void showTitle() {
@@ -49,8 +84,9 @@ public final class Game {
         System.out.println(this.attempts + " attempt(s):");
         System.out.println("xxxx");
         // pintar los resultados actuales
-        for(Combination c : this.board.getCombinationsDone()){
+        for (Combination c : this.board.getCombinationsDone()) {
             // mostrar combinaciones hechas
+            System.out.println(c);
         }
     }
 
@@ -69,9 +105,6 @@ public final class Game {
     }
 
     public Game() {
-        this.attempts = 0;
-        Combination result = Combination.random();
-        this.board = new Board(result);
         this.scanner = new Scanner(System.in);
     }
 

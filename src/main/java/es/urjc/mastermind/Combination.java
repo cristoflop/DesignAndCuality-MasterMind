@@ -6,22 +6,14 @@ import java.util.Random;
 
 public final class Combination {
 
-    private final static int MAX_COLORS = 4;
     private List<Color> colors;
 
-    public Result compare(Combination other) {
-        int blacks = 0;
-        int whites = 0;
-
-        return new Result(blacks, whites, this);
-    }
-
-    public static Combination random() {
+    public static Combination random(int maxColors) {
         Random r = new Random();
         int max = Color.values().length;
 
         List<Color> colors = new ArrayList<Color>();
-        while (colors.size() < MAX_COLORS) {
+        while (colors.size() < maxColors) {
             int pos = r.nextInt(max - 1) + 1;
             colors.add(Color.values()[pos]);
         }
@@ -37,5 +29,23 @@ public final class Combination {
 
     private Combination(List<Color> colors) {
         this.colors = colors;
+    }
+
+    @Override
+    public String toString() {
+        String result = "";
+        for (Color c : this.colors) {
+            result += c.getColor();
+        }
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        boolean result = false;
+        if (other instanceof Combination) {
+            result = ((Combination) other).colors.equals(this.colors);
+        }
+        return result;
     }
 }

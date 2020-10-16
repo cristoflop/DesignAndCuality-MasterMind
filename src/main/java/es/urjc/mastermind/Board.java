@@ -9,16 +9,23 @@ import org.jetbrains.annotations.NotNull;
 
 public final class Board {
 
+
+    private final int LENGTH = 4;
+
     private List<Combination> combinationsDone;
-    private List<Result> results;
+    // private List<Result> results;
     private boolean isFinished;
     private Combination result;
 
-    public final void playRound(Combination combinationProposed) {
-
+    public void playRound(Combination combinationProposed) {
+        this.isFinished = combinationProposed.equals(this.result);
     }
 
-    public Board(Combination result) {
+    public Board() {
+
+        Combination result = Combination.random(this.LENGTH);
+        System.out.println("EL RESULTADO ES: " + result);
+
         this.result = result;
         this.isFinished = false;
         this.combinationsDone = new ArrayList<Combination>();
