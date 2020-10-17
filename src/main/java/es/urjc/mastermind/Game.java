@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public final class Game {
 
-    private int attempts;
-    private final int MAX_ATTEMPTS = 10;
     private final int LENGTH = 4;
     private Board board;
 
@@ -14,26 +12,14 @@ public final class Game {
     public final void play() {
         do {
             this.board = new Board();
-            this.attempts = 0;
             this.showTitle();
-
-            while (!this.board.isFinished() && attempts < this.MAX_ATTEMPTS) {
-                this.showAttempts();
-
+            while (!this.board.isFinished()) {
+                this.board.showAttempts();
                 String proposal = this.proposeCombination();
                 this.board.playRound(new Combination(proposal));
-
-                this.attempts++;
             }
-
-            if (this.board.isFinished()) {
-                System.out.println("You have won");
-            } else {
-                System.out.println("You have lost");
-            }
-
+            this.board.showResult();
         } while (this.resume());
-
         this.endGame();
     }
 
@@ -41,18 +27,17 @@ public final class Game {
         boolean validProposal = false;
         String input = "";
         while (!validProposal) {
-            System.out.print("Propose combination: ");
+            System.out.print(Message.Propose);
             input = scanner.nextLine();
             validProposal = this.validateCombination(input);
         }
-
         return input;
     }
 
     private boolean validateCombination(String input) {
         boolean ok = true;
         if (input.length() != this.LENGTH) {
-            System.out.println("Wrong proposed combination length");
+            System.out.println(Message.Wrong_Length);
             ok = false;
         } else {
             if (!validateCharacters(input)) {
@@ -69,7 +54,7 @@ public final class Game {
         while (i < chars.length && ok) {
             if (Color.parse(chars[i]) == Color.Unknown) {
                 ok = false;
-                System.out.println("Wrong colors, they must be: rbygop");
+                System.out.println(Message.Wrong_Colors);
             }
             i++;
         }
@@ -77,17 +62,7 @@ public final class Game {
     }
 
     private void showTitle() {
-        System.out.println("----- MASTERMIND -----");
-    }
-
-    private void showAttempts() {
-        System.out.println(this.attempts + " attempt(s):");
-        System.out.println("xxxx");
-        // pintar los resultados actuales
-        for (Combination c : this.board.getCombinationsDone()) {
-            // mostrar combinaciones hechas
-            System.out.println(c);
-        }
+        System.out.println(Message.Title);
     }
 
     private void endGame() {
@@ -95,13 +70,13 @@ public final class Game {
     }
 
     private boolean resume() {
-        System.out.print("Do you want to resume? (y/n): ");
+        System.out.print(Message.Resume);
         String finishGame = "";
-        while (!finishGame.equals("y") && !finishGame.equals("n")) {
-            System.out.print("Please write 'Y' or 'N': ");
+        while (!finishGame.equals(Message.Yes_Message.getMsg()) && !finishGame.equals(Message.No_Message.getMsg())) {
+            System.out.print(Message.Yes_No_Message_Format);
             finishGame = scanner.nextLine().toLowerCase();
         }
-        return finishGame.equals("y");
+        return finishGame.equals(Message.Yes_Message.getMsg());
     }
 
     public Game() {
