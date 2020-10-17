@@ -11,7 +11,6 @@ public final class Combination {
     public static Combination random(int maxColors) {
         Random r = new Random();
         int max = Color.values().length;
-
         List<Color> colors = new ArrayList<Color>();
         while (colors.size() < maxColors) {
             int pos = r.nextInt(max - 1) + 1;
@@ -29,6 +28,10 @@ public final class Combination {
 
     private Combination(List<Color> colors) {
         this.colors = colors;
+    }
+
+    public List<Color> getColors() {
+        return colors;
     }
 
     @Override
