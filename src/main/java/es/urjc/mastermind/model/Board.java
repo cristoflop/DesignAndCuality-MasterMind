@@ -1,4 +1,6 @@
-package es.urjc.mastermind;
+package es.urjc.mastermind.model;
+
+import es.urjc.mastermind.view.BoardView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +17,9 @@ public final class Board {
     private boolean isFinished;
     private Combination result;
 
-    public void playRound(Scanner scanner) {
+    public void playRound() {
         this.attempts++;
-        String proposal = this.proposeCombination(scanner);
+        /*String proposal = this.proposeCombination(scanner);
         Combination combination = new Combination(proposal);
         this.combinationsDone.add(new Result(combination, result));
         if (combination.equals(this.result)) {
@@ -28,6 +30,8 @@ public final class Board {
                 this.isFinished = true;
             }
         }
+
+         */
     }
 
     public void showAttempts() {

@@ -1,4 +1,4 @@
-package es.urjc.mastermind;
+package es.urjc.mastermind.model;
 
 public enum Message {
 
