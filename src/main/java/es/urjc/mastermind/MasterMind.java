@@ -2,7 +2,7 @@ package es.urjc.mastermind;
 
 import java.util.Scanner;
 
-public final class Game {
+public final class MasterMind {
 
     private Board board;
     private Scanner scanner;
@@ -38,12 +38,12 @@ public final class Game {
         return finishGame.equals(Message.Yes_Message.getMsg());
     }
 
-    public Game() {
+    public MasterMind() {
         this.scanner = new Scanner(System.in);
     }
 
     public static void main(String[] args) {
-        new Game().play();
+        new MasterMind().play();
 
     }
 }
