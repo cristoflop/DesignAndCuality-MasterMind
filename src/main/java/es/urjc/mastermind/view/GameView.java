@@ -39,9 +39,4 @@ public class GameView {
         this.proposeView = new ProposeView();
     }
 
-    public static void main(String[] args) {
-        Game game = new Game();
-        new GameView(game).play();
-    }
-
 }
