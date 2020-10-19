@@ -3146,9 +3146,9 @@
 											"font": "Arial;13;1",
 											"left": 261,
 											"top": 159,
-											"width": 80.57080078125,
+											"width": 101.61962890625,
 											"height": 13,
-											"text": "GameView"
+											"text": "MasterMindView"
 										},
 										{
 											"_type": "LabelView",
@@ -3181,7 +3181,7 @@
 									"font": "Arial;13;0",
 									"left": 256,
 									"top": 152,
-									"width": 90.57080078125,
+									"width": 111.61962890625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF1QLvt9S+TA+o="
@@ -3208,7 +3208,7 @@
 									"font": "Arial;13;0",
 									"left": 256,
 									"top": 177,
-									"width": 90.57080078125,
+									"width": 111.61962890625,
 									"height": 10
 								},
 								{
@@ -3233,7 +3233,7 @@
 											"font": "Arial;13;0",
 											"left": 261,
 											"top": 192,
-											"width": 80.57080078125,
+											"width": 101.61962890625,
 											"height": 13,
 											"text": "+play()",
 											"horizontalAlignment": 0
@@ -3250,7 +3250,7 @@
 											"font": "Arial;13;0",
 											"left": 261,
 											"top": 207,
-											"width": 80.57080078125,
+											"width": 101.61962890625,
 											"height": 13,
 											"text": "+showTittle()",
 											"horizontalAlignment": 0
@@ -3259,7 +3259,7 @@
 									"font": "Arial;13;0",
 									"left": 256,
 									"top": 187,
-									"width": 90.57080078125,
+									"width": 111.61962890625,
 									"height": 38
 								},
 								{
@@ -3299,7 +3299,7 @@
 							"containerChangeable": true,
 							"left": 256,
 							"top": 152,
-							"width": 90.57080078125,
+							"width": 111.61962890625,
 							"height": 73,
 							"nameCompartment": {
 								"$ref": "AAAAAAF1QLvt9S+SQP8="
@@ -4241,7 +4241,7 @@
 										"$ref": "AAAAAAF1QMBJ3FbXi4Y="
 									},
 									"font": "Arial;13;0",
-									"left": 366,
+									"left": 387,
 									"top": 165,
 									"width": 68.783203125,
 									"height": 13,
@@ -4263,7 +4263,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 374,
+									"left": 395,
 									"top": 180,
 									"height": 13,
 									"alpha": -0.7853981633974483,
@@ -4282,7 +4282,7 @@
 										"$ref": "AAAAAAF1QMBJ3FbXi4Y="
 									},
 									"font": "Arial;13;0",
-									"left": 364,
+									"left": 385,
 									"top": 139,
 									"width": 7.22998046875,
 									"height": 13,
@@ -4329,7 +4329,7 @@
 							"tail": {
 								"$ref": "AAAAAAF1QLwDCzAk6B8="
 							},
-							"points": "565:112;565:158;346:158",
+							"points": "565:112;565:158;367:158",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF1QMBJ3FbazXM="
@@ -5856,7 +5856,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 653,
+									"left": 663,
 									"top": 187,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -5877,7 +5877,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 653,
+									"left": 663,
 									"top": 172,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -5898,7 +5898,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 653,
+									"left": 663,
 									"top": 217,
 									"height": 13,
 									"alpha": -1.5707963267948966,
@@ -5916,7 +5916,7 @@
 							"tail": {
 								"$ref": "AAAAAAF1QLvt9S+RUPw="
 							},
-							"points": "346:208;960:208",
+							"points": "367:208;960:208",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAF1QNBQn4APnMA="
@@ -7899,7 +7899,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "GameView",
+					"name": "MasterMindView",
 					"ownedElements": [
 						{
 							"_type": "UMLDependency",
