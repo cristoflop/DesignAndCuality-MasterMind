@@ -1,11 +1,11 @@
-package es.urjc.mastermind.view;
+package es.urjc.mastermind.view.console;
 
 import es.urjc.mastermind.Utils.Constant;
 import es.urjc.mastermind.Utils.SystemConsole;
 import es.urjc.mastermind.model.Color;
 import es.urjc.mastermind.model.Message;
 
-public class ProposeView {
+public class ConsoleProposeView {
 
     public String proposeCombination() {
         SystemConsole console = SystemConsole.getInstance();

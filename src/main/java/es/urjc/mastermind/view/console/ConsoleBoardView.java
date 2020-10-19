@@ -1,19 +1,19 @@
-package es.urjc.mastermind.view;
+package es.urjc.mastermind.view.console;
 
 import es.urjc.mastermind.Utils.SystemConsole;
 import es.urjc.mastermind.model.Board;
 import es.urjc.mastermind.model.Message;
 
-public class BoardView {
+public class ConsoleBoardView {
 
     private Board board;
-    private ResultView resultView;
+    private ConsoleResultView consoleResultView;
 
     public void showAttempts() {
         SystemConsole console = SystemConsole.getInstance();
         console.println("\n" + this.board.getAttempts() + " attempt(s):");
         console.println(Message.XXX.getMsg());
-        this.resultView.showResults();
+        this.consoleResultView.showResults();
     }
 
     public void showResult() {
@@ -22,9 +22,9 @@ public class BoardView {
         SystemConsole.getInstance().println(msg.getMsg());
     }
 
-    public BoardView(Board board) {
+    public ConsoleBoardView(Board board) {
         this.board = board;
-        this.resultView = new ResultView(board);
+        this.consoleResultView = new ConsoleResultView(board);
     }
 
 }

@@ -1,9 +1,9 @@
-package es.urjc.mastermind.view;
+package es.urjc.mastermind.view.console;
 
 import es.urjc.mastermind.Utils.SystemConsole;
 import es.urjc.mastermind.model.Message;
 
-public class ResumeView {
+public class ConsoleResumeView {
 
     public boolean resume() {
         SystemConsole console = SystemConsole.getInstance();

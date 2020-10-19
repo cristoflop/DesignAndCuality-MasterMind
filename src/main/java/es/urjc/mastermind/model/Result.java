@@ -16,11 +16,11 @@ public class Result {
         List<Color> resultColors = result.getColors();
         for (int i = 0; i < proposedColors.size(); ++i) {
             Color auxProposed = proposedColors.get(i);
-            int indexAuxProposedInResult = resultColors.indexOf(auxProposed);
-            if (indexAuxProposedInResult != -1) { // el color esta en la combinacion correcta
-                if (indexAuxProposedInResult == i) {
-                    this.blacks++;
-                } else {
+            Color resultColor = resultColors.get(i);
+            if (auxProposed.equals(resultColor)) {
+                this.blacks++;
+            } else {
+                if (resultColors.contains(auxProposed)) {
                     this.whites++;
                 }
             }

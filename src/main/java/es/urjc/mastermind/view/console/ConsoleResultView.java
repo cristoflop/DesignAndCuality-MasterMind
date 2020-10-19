@@ -1,10 +1,10 @@
-package es.urjc.mastermind.view;
+package es.urjc.mastermind.view.console;
 
 import es.urjc.mastermind.Utils.SystemConsole;
 import es.urjc.mastermind.model.Board;
 import es.urjc.mastermind.model.Result;
 
-public class ResultView {
+public class ConsoleResultView {
 
     private Board board;
 
@@ -19,7 +19,7 @@ public class ResultView {
         console.println(result.getCombination() + " --> " + result.getBlacks() + " blacks and " + result.getWhites() + " whites");
     }
 
-    public ResultView(Board board) {
+    public ConsoleResultView(Board board) {
         this.board = board;
     }
 
