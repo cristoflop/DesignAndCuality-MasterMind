@@ -2,6 +2,7 @@ package usantatecla.mastermind;
 
 import usantatecla.mastermind.models.Game;
 import usantatecla.mastermind.views.View;
+import usantatecla.mastermind.views.ViewFactory;
 import usantatecla.mastermind.views.console.ConsoleView;
 
 public class Mastermind {
@@ -11,7 +12,7 @@ public class Mastermind {
 
     private Mastermind() {
         this.game = new Game();
-        this.view = new ConsoleView(this.game);
+        this.view = ViewFactory.getInstance().generateConsoleView(this.game);
     }
 
     private void play() {
