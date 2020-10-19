@@ -1,11 +1,11 @@
 package es.urjc.mastermind.view;
 
 import es.urjc.mastermind.Utils.SystemConsole;
-import es.urjc.mastermind.model.Game;
+import es.urjc.mastermind.model.MasterMind;
 
-public class GameView {
+public class MasterMindView {
 
-    private Game game;
+    private MasterMind masterMind;
     private BoardView boardView;
     private ResumeView resumeView;
     private ProposeView proposeView;
@@ -14,10 +14,10 @@ public class GameView {
         do {
             this.initGame();
             this.showTitle();
-            while (!this.game.isFinished()) {
+            while (!this.masterMind.isFinished()) {
                 this.boardView.showAttempts();
                 String proposal = this.proposeView.proposeCombination();
-                this.game.playRound(proposal);
+                this.masterMind.playRound(proposal);
             }
             this.boardView.showResult();
         }
@@ -25,23 +25,23 @@ public class GameView {
     }
 
     public void showTitle() {
-        SystemConsole.getInstance().println(this.game.getTitle().getMsg());
+        SystemConsole.getInstance().println(this.masterMind.getTitle().getMsg());
     }
 
     private void initGame() {
-        this.game.initGame();
-        this.boardView = new BoardView(this.game.getBoard());
+        this.masterMind.initGame();
+        this.boardView = new BoardView(this.masterMind.getBoard());
     }
 
-    public GameView(Game game) {
-        this.game = game;
+    public MasterMindView(MasterMind masterMind) {
+        this.masterMind = masterMind;
         this.resumeView = new ResumeView();
         this.proposeView = new ProposeView();
     }
 
     public static void main(String[] args) {
-        Game game = new Game();
-        new GameView(game).play();
+        MasterMind masterMind = new MasterMind();
+        new MasterMindView(masterMind).play();
     }
 
 }
