@@ -27,8 +27,16 @@ public class Result {
         }
     }
 
-    @Override
-    public String toString() {
-        return this.combination + " --> " + this.blacks + " blacks and " + this.whites + " whites";
+    public Combination getCombination() {
+        return this.combination;
     }
+
+    public int getBlacks() {
+        return this.blacks;
+    }
+
+    public int getWhites() {
+        return this.whites;
+    }
+
 }

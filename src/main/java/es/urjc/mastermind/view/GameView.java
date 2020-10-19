@@ -2,46 +2,46 @@ package es.urjc.mastermind.view;
 
 import es.urjc.mastermind.Utils.SystemConsole;
 import es.urjc.mastermind.model.Game;
-import es.urjc.mastermind.model.Message;
 
 public class GameView {
 
     private Game game;
     private BoardView boardView;
+    private ResumeView resumeView;
+    private ProposeView proposeView;
 
     public void play() {
         do {
-            this.game.initGame();
-            this.showTitle(this.game.getTitle().getMsg());
+            this.initGame();
+            this.showTitle();
             while (!this.game.isFinished()) {
-                this.game.playRound();
+                this.boardView.showAttempts();
+                String proposal = this.proposeView.proposeCombination();
+                this.game.playRound(proposal);
             }
+            this.boardView.showResult();
         }
-        while (this.resume());
+        while (this.resumeView.resume());
     }
 
-    public boolean resume() {
-        SystemConsole console = SystemConsole.getInstance();
-        String finishGame = console.readln(Message.Resume.getMsg());
-        while (!finishGame.equals(Message.Yes_Message.getMsg()) && !finishGame.equals(Message.No_Message.getMsg())) {
-            finishGame = console.readln(Message.Yes_No_Message_Format.getMsg());
-        }
-        return finishGame.equals(Message.Yes_Message.getMsg());
+    public void showTitle() {
+        SystemConsole.getInstance().println(this.game.getTitle().getMsg());
     }
 
-    public void showTitle(String title) {
-        SystemConsole.getInstance().println(title);
+    private void initGame() {
+        this.game.initGame();
+        this.boardView = new BoardView(this.game.getBoard());
     }
 
     public GameView(Game game) {
         this.game = game;
-        this.boardView = new BoardView(this.game.getBoard());
+        this.resumeView = new ResumeView();
+        this.proposeView = new ProposeView();
     }
 
     public static void main(String[] args) {
         Game game = new Game();
         new GameView(game).play();
-
     }
 
 }

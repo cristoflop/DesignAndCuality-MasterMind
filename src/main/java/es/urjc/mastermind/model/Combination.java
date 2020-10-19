@@ -19,6 +19,10 @@ public final class Combination {
         return new Combination(colors);
     }
 
+    public boolean isEqualTo(Combination other) {
+        return other.getColors().equals(this.colors);
+    }
+
     public Combination(String input) {
         this.colors = new ArrayList<Color>();
         for (char c : input.toCharArray()) {
@@ -43,12 +47,4 @@ public final class Combination {
         return result;
     }
 
-    @Override
-    public boolean equals(Object other) {
-        boolean result = false;
-        if (other instanceof Combination) {
-            result = ((Combination) other).colors.equals(this.colors);
-        }
-        return result;
-    }
 }

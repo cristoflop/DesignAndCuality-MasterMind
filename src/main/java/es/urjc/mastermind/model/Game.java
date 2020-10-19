@@ -1,21 +1,12 @@
 package es.urjc.mastermind.model;
 
-import es.urjc.mastermind.view.GameView;
-
-import java.util.Scanner;
-
 public final class Game {
 
     private Board board;
     private Message title;
 
-    public final void playRound() {
-        while (!this.board.isFinished()) {
-            this.board.showAttempts(); // pasar a gameView
-            // this.board.playRound();
-        }
-        this.board.showResult();
-        // } while (gameView.resume());
+    public final void playRound(String proposal) {
+        this.board.playRound(proposal);
     }
 
     public boolean isFinished() {
