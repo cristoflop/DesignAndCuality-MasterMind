@@ -5,11 +5,8 @@ import usantatecla.mastermind.models.Game;
 public class View {
 
 	protected Game game;
-
 	private StartView startView;
-
 	private ProposalView proposalView;
-
 	private ResumeView resumeView;
 
 	public View(Game game) {

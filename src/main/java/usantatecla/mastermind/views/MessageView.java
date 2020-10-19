@@ -14,10 +14,11 @@ public enum MessageView {
 
     private String message;
 
-    private Console console;
+    private Console console = new Console();
 
     MessageView(String message) {
         this.message = message;
+        this.console = new Console();
     }
 
     void write() {

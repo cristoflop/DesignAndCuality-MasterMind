@@ -16,7 +16,7 @@ public class Console {
 				input = this.bufferedReader.readLine();
 				ok = true;
 			} catch (Exception ex) {
-				this.writeError("characte string");
+				this.writeError("character string");
 			}
 		} while (!ok);
 		return input;
