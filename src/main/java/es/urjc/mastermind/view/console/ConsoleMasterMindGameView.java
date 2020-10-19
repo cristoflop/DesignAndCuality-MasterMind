@@ -1,10 +1,10 @@
 package es.urjc.mastermind.view.console;
 
 import es.urjc.mastermind.Utils.SystemConsole;
-import es.urjc.mastermind.model.Game;
+import es.urjc.mastermind.model.MasterMindGame;
 import es.urjc.mastermind.view.View;
 
-public class ConsoleGameView extends View {
+public class ConsoleMasterMindGameView extends View {
 
     private ConsoleBoardView consoleBoardView;
     private ConsoleResumeView consoleResumeView;
@@ -14,10 +14,10 @@ public class ConsoleGameView extends View {
         do {
             this.initGame();
             this.showTitle();
-            while (!this.game.isFinished()) {
+            while (!this.masterMindGame.isFinished()) {
                 this.consoleBoardView.showAttempts();
                 String proposal = this.consoleProposeView.proposeCombination();
-                this.game.playRound(proposal);
+                this.masterMindGame.playRound(proposal);
             }
             this.consoleBoardView.showResult();
         }
@@ -25,16 +25,16 @@ public class ConsoleGameView extends View {
     }
 
     public void showTitle() {
-        SystemConsole.getInstance().println(this.game.getTitle().getMsg());
+        SystemConsole.getInstance().println(this.masterMindGame.getTitle().getMsg());
     }
 
     private void initGame() {
-        this.game.initGame();
-        this.consoleBoardView = new ConsoleBoardView(this.game.getBoard());
+        this.masterMindGame.initGame();
+        this.consoleBoardView = new ConsoleBoardView(this.masterMindGame.getBoard());
     }
 
-    public ConsoleGameView(Game game) {
-        super(game);
+    public ConsoleMasterMindGameView(MasterMindGame masterMindGame) {
+        super(masterMindGame);
         this.consoleResumeView = new ConsoleResumeView();
         this.consoleProposeView = new ConsoleProposeView();
     }

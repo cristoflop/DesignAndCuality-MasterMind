@@ -1,13 +1,13 @@
 package es.urjc.mastermind.view;
 
-import es.urjc.mastermind.model.Game;
+import es.urjc.mastermind.model.MasterMindGame;
 
 public abstract class View {
 
-    protected Game game;
+    protected MasterMindGame masterMindGame;
 
-    public View(Game game) {
-        this.game = game;
+    public View(MasterMindGame masterMindGame) {
+        this.masterMindGame = masterMindGame;
     }
 
     public abstract void play();

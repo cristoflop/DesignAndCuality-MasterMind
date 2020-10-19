@@ -1,6 +1,6 @@
 package es.urjc.mastermind.model;
 
-public final class Game {
+public final class MasterMindGame {
 
     private Board board;
     private Message title;
@@ -17,7 +17,7 @@ public final class Game {
         this.board = new Board();
     }
 
-    public Game() {
+    public MasterMindGame() {
         this.title = Message.Title;
     }
 
