@@ -1,4 +1,4 @@
-package usantatecla.mastermind.views;
+package usantatecla.mastermind.views.console;
 
 import usantatecla.utils.Console;
 
@@ -13,8 +13,7 @@ public enum MessageView {
     LOOSER("You've lost!!! :-(");
 
     private String message;
-
-    private Console console = new Console();
+    private Console console;
 
     MessageView(String message) {
         this.message = message;

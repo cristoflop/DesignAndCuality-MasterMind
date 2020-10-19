@@ -1,17 +1,17 @@
-package usantatecla.mastermind.views;
+package usantatecla.mastermind.views.console;
 
 import usantatecla.mastermind.models.Game;
 import usantatecla.utils.YesNoDialog;
 
-class ResumeView {
+public class ResumeView {
 
 	private Game game;
 
-	ResumeView(Game game) {
+	public ResumeView(Game game) {
 		this.game = game;
 	}
 
-	boolean interact() {
+	public boolean interact() {
 		MessageView.RESUME.write();
 		boolean newGame = new YesNoDialog().read();
 		if (newGame) {
