@@ -28,7 +28,7 @@ public class ProposalController extends Controller {
 							error = Error.DUPLICATED;
 						}
 					}
-				}				
+				}
 			}
 		}
 		if (error == null){
@@ -37,7 +37,7 @@ public class ProposalController extends Controller {
 				this.state.next();
 			}
 		}
-		return error;	
+		return error;
 	}
 
 	public boolean isWinner() {
@@ -47,7 +47,7 @@ public class ProposalController extends Controller {
 	public boolean isLooser() {
 		return this.game.isLooser();
 	}
-	
+
 	public int getAttempts() {
 		return this.game.getAttempts();
 	}
@@ -62,11 +62,6 @@ public class ProposalController extends Controller {
 
 	public int getWhites(int position) {
 		return this.game.getWhites(position);
-	}
-	
-	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
-		controllersVisitor.visit(this);
 	}
 
 }

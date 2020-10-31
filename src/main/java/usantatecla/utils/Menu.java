@@ -3,7 +3,7 @@ package usantatecla.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Menu {
+public abstract class Menu {
 
     private static final String OPTION = "Option? [1-#size]: ";
     private List<Command> commandList;

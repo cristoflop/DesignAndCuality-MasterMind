@@ -1,37 +1,35 @@
 package usantatecla.mastermind.views.console;
 
-import usantatecla.mastermind.controllers.ProposalController;
-import usantatecla.mastermind.controllers.ResumeController;
-import usantatecla.mastermind.controllers.StartController;
+import usantatecla.mastermind.controllers.*;
 import usantatecla.mastermind.views.View;
 
 public class ConsoleView extends View {
-	
-	private StartView startView;
-	
-	private ProposalView proposalView;
-	
-	private ResumeView resumeView;
-	
-	public ConsoleView(){
-		this.startView = new StartView();
-		this.proposalView = new ProposalView();
-		this.resumeView = new ResumeView();
-	}
 
-	
-	public void visit(StartController startController) {
-		this.startView.interact(startController);		
-	}
+    private StartView startView;
 
-	
-	public void visit(ProposalController proposalController) {
-		this.proposalView.interact(proposalController);
-	}
+    private PlayView playView;
 
-	
-	public void visit(ResumeController resumeController) {
-		this.resumeView.interact(resumeController);
-	}
+    private ResumeView resumeView;
 
+    public ConsoleView() {
+        this.startView = new StartView();
+        this.playView = new PlayView();
+        this.resumeView = new ResumeView();
+    }
+
+    public void visit(StartController startController) {
+        this.startView.interact(startController);
+    }
+
+    public void visit(ResumeController resumeController) {
+        this.resumeView.interact(resumeController);
+    }
+
+    public void visit(PlayController playController) {
+        this.playView.interact(playController);
+    }
+
+    public void interact(AcceptorController controller) {
+        controller.accept(this);
+    }
 }

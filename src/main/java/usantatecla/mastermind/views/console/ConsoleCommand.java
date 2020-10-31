@@ -5,7 +5,7 @@ import usantatecla.utils.Command;
 
 public abstract class ConsoleCommand extends Command {
 
-    private PlayController playController;
+    protected PlayController playController;
 
     public ConsoleCommand(String title, PlayController playController) {
         super(title);
