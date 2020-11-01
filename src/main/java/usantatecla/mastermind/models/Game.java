@@ -59,12 +59,19 @@ public class Game {
         return this.results.get(position).getWhites();
     }
 
-    public int getWidth() {
-        return Combination.getWidth();
-    }
-
     public Combination getSecretCombination() {
         return this.secretCombination;
+    }
+
+    public GameMemento createMemento() {
+        return new GameMemento(this.secretCombination, this.proposedCombinations, this.results, this.attempts);
+    }
+
+    public void set(GameMemento gameMemento) {
+        this.secretCombination = gameMemento.getSecretCombination();
+        this.proposedCombinations = new ArrayList<ProposedCombination>(gameMemento.getProposedCombinations());
+        this.results = new ArrayList<Result>(gameMemento.getResults());
+        this.attempts = gameMemento.getAttempts();
     }
 
 }

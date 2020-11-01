@@ -1,7 +1,6 @@
 package usantatecla.mastermind.controllers;
 
-import usantatecla.mastermind.models.Game;
-import usantatecla.mastermind.models.State;
+import usantatecla.mastermind.models.Session;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
 
@@ -10,12 +9,14 @@ import java.util.List;
 public class PlayController extends Controller implements AcceptorController {
 
     private ProposalController proposalController;
-    // private RedoController redoController;
-    // private UndoController undoController;
+    private RedoController redoController;
+    private UndoController undoController;
 
-    PlayController(Game game, State state) {
-        super(game, state);
-        this.proposalController = new ProposalController(game, state);
+    PlayController(Session session) {
+        super(session);
+        this.proposalController = new ProposalController(session);
+        this.redoController = new RedoController(session);
+        this.undoController = new UndoController(session);
     }
 
     public Error addProposedCombination(List<Color> colors) {
@@ -44,6 +45,22 @@ public class PlayController extends Controller implements AcceptorController {
 
     public int getWhites(int position) {
         return this.proposalController.getWhites(position);
+    }
+
+    public void undo() {
+        this.undoController.undo();
+    }
+
+    public boolean undoable() {
+        return this.undoController.undoable();
+    }
+
+    public void redo() {
+        this.redoController.redo();
+    }
+
+    public boolean redoable() {
+        return this.redoController.redoable();
     }
 
     public void accept(ControllersVisitor controllersVisitor) {

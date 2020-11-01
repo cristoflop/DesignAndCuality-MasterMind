@@ -3,18 +3,18 @@ package usantatecla.mastermind.views.console;
 import usantatecla.mastermind.controllers.PlayController;
 import usantatecla.mastermind.views.MessageView;
 
-public class PlayCommand extends ConsoleCommand {
+public class RedoCommand extends ConsoleCommand {
 
-    public PlayCommand(PlayController playController) {
-        super(MessageView.PROPOSED_COMBINATION.getMessage(), playController);
+    public RedoCommand(PlayController playController) {
+        super(MessageView.REDO.getMessage(), playController);
     }
 
     public void execute() {
-        new ProposalView().interact(this.playController);
+        this.playController.redo();
         new GameView().interact(this.playController);
     }
 
     public boolean isActive() {
-        return true;
+        return this.playController.redoable();
     }
 }
