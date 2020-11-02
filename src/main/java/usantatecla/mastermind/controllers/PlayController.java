@@ -6,7 +6,7 @@ import usantatecla.mastermind.types.Error;
 
 import java.util.List;
 
-public class PlayController extends Controller implements AcceptorController {
+public class PlayController extends AcceptorController {
 
     private ProposalController proposalController;
     private RedoController redoController;
