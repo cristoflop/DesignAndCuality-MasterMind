@@ -4,7 +4,7 @@ import usantatecla.mastermind.models.Session;
 
 public class UndoController extends Controller {
 
-    UndoController(Session session) {
+    public UndoController(Session session) {
         super(session);
     }
 

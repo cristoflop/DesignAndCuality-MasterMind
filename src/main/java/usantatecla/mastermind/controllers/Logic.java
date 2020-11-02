@@ -1,5 +1,8 @@
 package usantatecla.mastermind.controllers;
 
+import usantatecla.mastermind.controllers.implementation.PlayControllerImplementation;
+import usantatecla.mastermind.controllers.implementation.ResumeControllerImplementation;
+import usantatecla.mastermind.controllers.implementation.StartControllerImplementation;
 import usantatecla.mastermind.models.Session;
 import usantatecla.mastermind.models.StateValue;
 
@@ -15,9 +18,9 @@ public class Logic {
     public Logic() {
         this.session = new Session();
         this.controllers = new HashMap<StateValue, AcceptorController>();
-        this.controllers.put(StateValue.INITIAL, new StartController(this.session));
-        this.controllers.put(StateValue.IN_GAME, new PlayController(this.session));
-        this.controllers.put(StateValue.FINAL, new ResumeController(this.session));
+        this.controllers.put(StateValue.INITIAL, new StartControllerImplementation(this.session));
+        this.controllers.put(StateValue.IN_GAME, new PlayControllerImplementation(this.session));
+        this.controllers.put(StateValue.FINAL, new ResumeControllerImplementation(this.session));
         this.controllers.put(StateValue.EXIT, null);
     }
 

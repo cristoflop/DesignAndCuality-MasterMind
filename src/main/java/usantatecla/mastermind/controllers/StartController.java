@@ -3,19 +3,15 @@ package usantatecla.mastermind.controllers;
 import usantatecla.mastermind.models.Combination;
 import usantatecla.mastermind.models.Session;
 
-public class StartController extends AcceptorController {
+public abstract class StartController extends AcceptorController {
 
     public StartController(Session session) {
         super(session);
     }
 
-    public void start() {
-        this.session.next();
-    }
+    public abstract void start();
 
-    public Combination getSecretCombination() {
-        return this.session.getSecretCombination();
-    }
+    public abstract Combination getSecretCombination();
 
     public void accept(ControllersVisitor controllersVisitor) {
         controllersVisitor.visit(this);
