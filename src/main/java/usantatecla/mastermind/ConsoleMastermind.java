@@ -1,15 +1,15 @@
 package usantatecla.mastermind;
 
+import usantatecla.mastermind.controllers.Logic;
 import usantatecla.mastermind.views.View;
 import usantatecla.mastermind.views.console.ConsoleView;
 
-public class ConsoleMastermind extends Mastermind{
+public abstract class ConsoleMastermind extends Mastermind {
 
-	protected View createView() {
-		return new ConsoleView();
-	}
-	
-	public static void main(String[] args) {
-		new ConsoleMastermind().play();
-	}
+    protected View createView() {
+        return new ConsoleView();
+    }
+
+    protected abstract Logic createLogic();
+
 }
