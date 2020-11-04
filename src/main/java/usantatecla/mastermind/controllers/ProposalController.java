@@ -7,11 +7,16 @@ import usantatecla.mastermind.models.Game;
 import usantatecla.mastermind.models.State;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
+import usantatecla.mastermind.views.console.ProposalView;
 
 public class ProposalController extends Controller {
 
 	public ProposalController(Game game, State state) {
 		super(game, state);
+	}
+
+	public void control() {
+		new ProposalView().interact(this);
 	}
 
 	public Error addProposedCombination(List<Color> colors) {
@@ -62,11 +67,6 @@ public class ProposalController extends Controller {
 
 	public int getWhites(int position) {
 		return this.game.getWhites(position);
-	}
-	
-	@Override
-	public void accept(ControllersVisitor controllersVisitor) {
-		controllersVisitor.visit(this);
 	}
 
 }

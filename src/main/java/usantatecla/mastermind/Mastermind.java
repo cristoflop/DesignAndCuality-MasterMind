@@ -2,30 +2,28 @@ package usantatecla.mastermind;
 
 import usantatecla.mastermind.controllers.Controller;
 import usantatecla.mastermind.controllers.Logic;
-import usantatecla.mastermind.views.View;
 
-public abstract class Mastermind {
-	
-	private Logic logic;
-	
-	private View view;
-	
-	protected Mastermind() {
-		this.logic = new Logic();
-		this.view = this.createView();
-	}
-	
-	protected abstract View createView();
+public class Mastermind {
 
-	protected void play() {
-		Controller controller;
-		do {
-			controller = this.logic.getController();
-			if (controller != null){
-				this.view.interact(controller);
-			}
-		} while (controller != null); 
-	}
-	
+    private Logic logic;
+
+    protected Mastermind() {
+        this.logic = new Logic();
+    }
+
+    protected void play() {
+        Controller controller;
+        do {
+            controller = this.logic.getController();
+            if (controller != null) {
+                controller.control();
+            }
+        } while (controller != null);
+    }
+
+    public static void main(String[] args) {
+        new Mastermind().play();
+    }
+
 }
 
