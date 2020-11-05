@@ -1,6 +1,5 @@
 package usantatecla.mastermind.views.console;
 
-import usantatecla.mastermind.controllers.StartController;
 import usantatecla.mastermind.views.MessageView;
 import usantatecla.utils.WithConsoleView;
 
@@ -12,6 +11,10 @@ public class StartView extends WithConsoleView {
             this.console.write(MessageView.SECRET.getMessage());
         }
         this.console.writeln();
+    }
+
+    public void writeSecretCombination(String secretCombination) {
+        new SecretCombinationView().writeSecretCombination(secretCombination);
     }
 
 }

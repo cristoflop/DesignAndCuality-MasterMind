@@ -2,7 +2,6 @@ package usantatecla.mastermind.controllers;
 
 import usantatecla.mastermind.models.Game;
 import usantatecla.mastermind.models.State;
-import usantatecla.mastermind.views.console.SecretCombinationView;
 import usantatecla.mastermind.views.console.StartView;
 
 public class StartController extends Controller {
@@ -13,8 +12,10 @@ public class StartController extends Controller {
 
     public void control() {
         this.start();
-        new StartView().writeln(this.getWidth());
-        new SecretCombinationView().writeSecretCombination(this.game.getSecretCombination().toString());
+        StartView startView = new StartView();
+        startView.writeln(this.getWidth());
+        startView.writeSecretCombination(this.game.getSecretCombination().toString());
+        startView.newLine();
     }
 
     public void start() {

@@ -11,7 +11,9 @@ public class ResumeController extends Controller {
     }
 
     public void control() {
-        this.resume(new ResumeView().writeln());
+        ResumeView resumeView = new ResumeView();
+        this.resume(resumeView.writeln());
+        resumeView.newLine();
     }
 
     public void resume(boolean newGame) {

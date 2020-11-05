@@ -3,7 +3,7 @@ package usantatecla.mastermind.views.console;
 import usantatecla.mastermind.views.MessageView;
 import usantatecla.utils.WithConsoleView;
 
-public class SecretCombinationView extends WithConsoleView {
+class SecretCombinationView extends WithConsoleView {
 
 
     public void writeln(int width) {

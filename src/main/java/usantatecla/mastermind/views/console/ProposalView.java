@@ -1,37 +1,44 @@
 package usantatecla.mastermind.views.console;
 
-import java.util.List;
-
-import usantatecla.mastermind.controllers.ProposalController;
 import usantatecla.mastermind.types.Color;
 import usantatecla.mastermind.types.Error;
-import usantatecla.mastermind.views.console.ErrorView;
-import usantatecla.utils.WithConsoleView;
 import usantatecla.mastermind.views.MessageView;
+import usantatecla.utils.WithConsoleView;
+
+import java.util.List;
 
 public class ProposalView extends WithConsoleView {
 
-    public void interact(ProposalController proposalController) {
-        Error error;
-        do {
-            List<Color> colors = new ProposedCombinationView(proposalController).read();
-            error = proposalController.addProposedCombination(colors);
-            if (error != null) {
-                new ErrorView(error).writeln();
-            }
-        } while (error != null);
-        this.console.writeln();
-        new AttemptsView(proposalController).writeln();
-        new SecretCombinationView().writeln(proposalController.getWidth());
-        for (int i = 0; i < proposalController.getAttempts(); i++) {
-            new ProposedCombinationView(proposalController).write(i);
-            new ResultView(proposalController).writeln(i);
-        }
-        if (proposalController.isWinner()) {
-            this.console.writeln(MessageView.WINNER.getMessage());
-        } else if (proposalController.isLooser()) {
-            this.console.writeln(MessageView.LOOSER.getMessage());
-        }
+    public List<Color> readProposal() {
+        return new ProposedCombinationView().read();
+    }
+
+    public void writeColors(List<Color> colors) {
+        new ProposedCombinationView().write(colors);
+    }
+
+    public void writeResult(int blacks, int whites) {
+        new ResultView().writeln(blacks, whites);
+    }
+
+    public void writeError(Error error) {
+        new ErrorView(error).writeln();
+    }
+
+    public void writeAttempts(int attempts) {
+        new AttemptsView().writeln(attempts);
+    }
+
+    public void writeSecret(int width) {
+        new SecretCombinationView().writeln(width);
+    }
+
+    public void writeWinner() {
+        this.console.writeln(MessageView.WINNER.getMessage());
+    }
+
+    public void writeLoser() {
+        this.console.writeln(MessageView.LOOSER.getMessage());
     }
 
 }
