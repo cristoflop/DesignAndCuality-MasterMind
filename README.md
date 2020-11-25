@@ -1,4 +1,4 @@
-## Author: Cristofer López Cabañas
+## DesignAndCuality: MasterMind - Author: Cristofer López Cabañas
 
 #### 1. DomainModel
     * First version of mastermind game with basic functionalities.
