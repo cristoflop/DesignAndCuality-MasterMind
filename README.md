@@ -22,5 +22,5 @@
     * Added memento pattern to have a registry of states of the game
     * Added composite pattern of proposal, undo, redo controllers in play Controller
     
-#### 6. dv.WithComposite
+#### 6. dv.withProxy
     * Added proxy pattern to use stand alone mode or client/server mode
